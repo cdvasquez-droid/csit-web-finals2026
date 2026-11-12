@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Leuremcelis | Cosmic Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a futuristic space vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Interactive Starfield Background -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">MATT<span>.DEV</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="greeting">WELCOME TO MY UNIVERSE</p>
+            <h1>Hi, I'm <span class="gradient-text">Matt Leuremcelis</span></h1>
+            <h2 class="typing-container">I build <span id="typed-text"></span><span class="cursor">|</span></h2>
+            <p class="hero-desc">Exploring the digital cosmos through clean code, modern web architecture, and interactive user experiences.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary-btn">Explore My Work</a>
+                <a href="#contact" class="btn secondary-btn">Transmit Message</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="glass-card about-container">
+            <div class="about-text">
+                <p>Hello! I'm Matt, a passionate web developer dedicated to crafting responsive, engaging, and high-performance websites. Just like exploring deep space, I love diving into new technologies and solving complex coding puzzles.</p>
+                <p>Whether it's front-end design or back-end logic, I focus on turning ambitious ideas into reality on the web.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Projects Launched</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Commitment</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Curiosity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Tech <span>Arsenal</span></h2>
+        <div class="skills-grid">
+            <div class="glass-card skill-card">
+                <i class="fab fa-html5" style="color: #e34c26;"></i>
+                <h3>HTML5</h3>
+            </div>
+            <div class="glass-card skill-card">
+                <i class="fab fa-css3-alt" style="color: #264de4;"></i>
+                <h3>CSS3</h3>
+            </div>
+            <div class="glass-card skill-card">
+                <i class="fab fa-js" style="color: #f0db4f;"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="glass-card skill-card">
+                <i class="fab fa-git-alt" style="color: #f1502f;"></i>
+                <h3>Git & GitHub</h3>
+            </div>
+            <div class="glass-card skill-card">
+                <i class="fab fa-react" style="color: #61dbfb;"></i>
+                <h3>React</h3>
+            </div>
+            <div class="glass-card skill-card">
+                <i class="fas fa-database" style="color: #a855f7;"></i>
+                <h3>Databases</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured <span>Missions</span></h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="glass-card project-card">
+                <div class="project-header">
+                    <i class="fas fa-rocket project-icon"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/mattleuremcelis23-beep" target="_blank" title="GitHub Code"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <h3>Nebula Task Manager</h3>
+                <p>A sleek, dark-mode productivity web app featuring local storage persistence, priority filtering, and smooth animations.</p>
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass-card project-card">
+                <div class="project-header">
+                    <i class="fas fa-satellite project-icon"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/mattleuremcelis23-beep" target="_blank" title="GitHub Code"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <h3>Astro Weather Tracker</h3>
+                <p>Real-time weather dashboard pulling live atmospheric data via REST APIs with dynamic background themes.</p>
+                <div class="tech-tags">
+                    <span>JavaScript</span>
+                    <span>REST API</span>
+                    <span>CSS Grid</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="glass-card project-card">
+                <div class="project-header">
+                    <i class="fas fa-meteor project-icon"></i>
+                    <div class="project-links">
+                        <a href="https://github.com/mattleuremcelis23-beep" target="_blank" title="GitHub Code"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <h3>Portfolio V2</h3>
+                <p>An interactive galaxy-themed personal portfolio built with HTML5 Canvas particle physics and glassmorphism UI.</p>
+                <div class="tech-tags">
+                    <span>Canvas API</span>
+                    <span>Glassmorphism</span>
+                    <span>Responsive</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Initiate <span>Contact</span></h2>
+        <div class="glass-card contact-container">
+            <p>Have a project in mind or want to collaborate? Send a signal across the galaxy!</p>
+            <form id="contact-form">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <textarea id="message" rows="5" placeholder="Your Message..." required></textarea>
+                <button type="submit" class="btn primary-btn">Launch Message <i class="fas fa-paper-plane"></i></button>
+            </form>
+            <p id="form-status" class="form-status"></p>
+            
+            <div class="social-links">
+                <a href="https://github.com/mattleuremcelis23-beep" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Matt Leuremcelis. Crafted among the stars.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
