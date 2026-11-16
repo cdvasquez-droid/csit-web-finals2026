@@ -6,114 +6,123 @@
   <title>IM Corbin Drew Vasquez | My Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="galaxy" aria-hidden="true"></canvas>
-  <div id="cursor-glow" aria-hidden="true"></div>
-  <div id="progress" aria-hidden="true"></div>
+  <canvas id="space" aria-hidden="true"></canvas>
 
-  <header class="nav">
-    <a href="#home" class="logo">CORB.DEV</a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+  <!-- The whole portfolio is a map you can drag around -->
+  <div id="stage">
+    <div id="world">
+      <svg id="lines" aria-hidden="true"></svg>
+
+      <div class="node" data-id="home" data-x="700" data-y="1000">
+        <button class="planet sun" data-goto="home" aria-label="Home"></button>
+        <div class="intro">
+          <p class="kicker">Welcome to my portfolio</p>
+          <h1>Hi, I'm Corbin Drew Vasquez</h1>
+          <h2>I build <span id="typed"></span><span class="caret">|</span></h2>
+          <p class="lead">Exploring the digital cosmos through clean code, modern web architecture, and interactive user experiences.</p>
+          <div class="actions">
+            <button class="btn primary" data-goto="projects">Explore my work</button>
+            <button class="btn ghost" data-goto="contact">Send a message</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="node" data-id="about" data-x="1550" data-y="520" style="--lab:135px">
+        <button class="planet p-about" data-goto="about" aria-label="About me"></button>
+        <span class="tag">About</span>
+      </div>
+
+      <div class="node" data-id="skills" data-x="1950" data-y="1330" style="--lab:285px">
+        <button class="planet p-skills" data-goto="skills" aria-label="Skills">
+          <span class="ring r1"><span class="sk a">HTML5</span><span class="sk b">CSS3</span></span>
+          <span class="ring r2"><span class="sk a">JS</span><span class="sk b">Git</span></span>
+          <span class="ring r3"><span class="sk a">React</span><span class="sk b">DB</span></span>
+        </button>
+        <span class="tag">Skills</span>
+      </div>
+
+      <div class="node" data-id="projects" data-x="2650" data-y="760" style="--lab:200px">
+        <button class="planet p-projects" data-goto="projects" aria-label="Projects"></button>
+        <span class="tag">Projects</span>
+      </div>
+
+      <div class="node" data-id="contact" data-x="2550" data-y="1700" style="--lab:110px">
+        <button class="planet p-contact" data-goto="contact" aria-label="Contact"></button>
+        <span class="tag">Contact</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="top">
+    <button class="logo" data-goto="home">CORB.DEV</button>
+    <nav aria-label="Destinations">
+      <button data-goto="home">Home</button>
+      <button data-goto="about">About</button>
+      <button data-goto="skills">Skills</button>
+      <button data-goto="projects">Projects</button>
+      <button data-goto="contact">Contact</button>
     </nav>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="planet" aria-hidden="true"></div>
-      <p class="kicker">Welcome to my portfolio</p>
-      <h1>Hi, I'm <span class="name">Corbin Drew Vasquez</span></h1>
-      <h2>I build <span id="typed"></span><span class="cursor">|</span></h2>
-      <p class="lead">Exploring the digital cosmos through clean code, modern web architecture, and interactive user experiences.</p>
-      <div class="actions">
-        <a class="btn primary" href="#projects">Explore my work</a>
-        <a class="btn ghost" href="#contact">Send a message</a>
-      </div>
-      <p class="hint">Drag the background to fly through space. Click for a star burst. Grab any card and throw it.</p>
-    </section>
+  <p id="hint">Drag to explore. Scroll to zoom. Click a planet to land on it.</p>
+  <canvas id="mini" aria-label="Map of the portfolio. Click to jump."></canvas>
+  <p class="foot">&copy; 2026 Corbin Drew F. Vasquez. Crafted among the stars.</p>
 
-    <section id="about">
-      <h2 class="title">About me</h2>
-      <div class="about-grid">
-        <div class="glass" data-drag>
-          <p>Hello! I'm Corbin Drew Vasquez, a passionate web developer dedicated to crafting responsive, engaging, and high-performance websites. Just like exploring deep space, I love diving into new technologies and solving complex coding puzzles.</p>
-          <p>Whether it's front-end design or back-end logic, I focus on turning ambitious ideas into reality on the web.</p>
-        </div>
-        <div class="stats">
-          <div class="orb" data-drag><strong>10+</strong><span>Projects launched</span></div>
-          <div class="orb" data-drag><strong>100%</strong><span>Commitment</span></div>
-          <div class="orb" data-drag><strong>24/7</strong><span>Curiosity</span></div>
-        </div>
-      </div>
-    </section>
+  <aside id="panel" role="dialog" aria-label="Details" aria-hidden="true" inert>
+    <button id="close" aria-label="Close panel">&times;</button>
 
-    <section id="skills">
-      <h2 class="title">Tech arsenal</h2>
-      <div class="system" aria-label="Skills orbiting a sun">
-        <div class="sun">Corbin</div>
-        <div class="ring r1"><span class="sk" title="HTML5">HTML5</span></div>
-        <div class="ring r2"><span class="sk" title="CSS3">CSS3</span></div>
-        <div class="ring r3"><span class="sk" title="JavaScript">JS</span></div>
-        <div class="ring r4"><span class="sk" title="Git &amp; GitHub">Git</span></div>
-        <div class="ring r5"><span class="sk" title="React">React</span></div>
-        <div class="ring r6"><span class="sk" title="Databases">DB</span></div>
-      </div>
-      <p class="hint center">Hover a planet to pause the orbit.</p>
-    </section>
+    <div class="pane" data-pane="about" hidden>
+      <h2>About me</h2>
+      <p>Hello! I'm Corbin Drew Vasquez, a passionate web developer dedicated to crafting responsive, engaging, and high-performance websites. Just like exploring deep space, I love diving into new technologies and solving complex coding puzzles.</p>
+      <p>Whether it's front-end design or back-end logic, I focus on turning ambitious ideas into reality on the web.</p>
+      <dl class="facts">
+        <div><dt>Projects launched</dt><dd>10+</dd></div>
+        <div><dt>Commitment</dt><dd>100%</dd></div>
+        <div><dt>Curiosity</dt><dd>24/7</dd></div>
+      </dl>
+    </div>
 
-    <section id="projects">
-      <h2 class="title">Featured missions</h2>
-      <div class="cards">
-        <article class="glass card" data-drag>
-          <h3>Nebula Task Manager</h3>
-          <p>A sleek, dark-mode productivity web app featuring local storage persistence, priority filtering, and smooth animations.</p>
-          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-          <div class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></div>
-        </article>
-        <article class="glass card" data-drag>
-          <h3>Astro Weather Tracker</h3>
-          <p>Real-time weather dashboard pulling live atmospheric data via REST APIs with dynamic background themes.</p>
-          <ul class="tags"><li>JavaScript</li><li>REST API</li><li>CSS Grid</li></ul>
-          <div class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></div>
-        </article>
-        <article class="glass card" data-drag>
-          <h3>Portfolio V2</h3>
-          <p>An interactive galaxy-themed personal portfolio built with HTML5 Canvas particle physics and glassmorphism UI.</p>
-          <ul class="tags"><li>Canvas API</li><li>Glassmorphism</li><li>Responsive</li></ul>
-          <div class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></div>
-        </article>
-      </div>
-    </section>
+    <div class="pane" data-pane="skills" hidden>
+      <h2>Tech arsenal</h2>
+      <ul class="stack">
+        <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Git &amp; GitHub</li><li>React</li><li>Databases</li>
+      </ul>
+    </div>
 
-    <section id="contact">
-      <h2 class="title">Initiate contact</h2>
-      <div class="glass contact" data-drag>
-        <p>Have a project in mind or want to collaborate? Send a signal across the galaxy!</p>
-        <a class="btn primary" href="mailto:your.email@example.com">Launch message</a>
-        <div class="links"><a href="https://github.com/corbindrew51-beep">GitHub</a></div>
-      </div>
-    </section>
-  </main>
+    <div class="pane" data-pane="projects" hidden>
+      <h2>Featured missions</h2>
+      <article>
+        <h3>Nebula Task Manager</h3>
+        <p>A sleek, dark-mode productivity web app featuring local storage persistence, priority filtering, and smooth animations.</p>
+        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        <p class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></p>
+      </article>
+      <article>
+        <h3>Astro Weather Tracker</h3>
+        <p>Real-time weather dashboard pulling live atmospheric data via REST APIs with dynamic background themes.</p>
+        <ul class="tags"><li>JavaScript</li><li>REST API</li><li>CSS Grid</li></ul>
+        <p class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></p>
+      </article>
+      <article>
+        <h3>Portfolio V2</h3>
+        <p>An interactive galaxy-themed personal portfolio built with HTML5 Canvas particle physics and glassmorphism UI.</p>
+        <ul class="tags"><li>Canvas API</li><li>Glassmorphism</li><li>Responsive</li></ul>
+        <p class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></p>
+      </article>
+    </div>
 
-  <footer>&copy; 2026 Corbin Drew F. Vasquez. Crafted among the stars.</footer>
+    <div class="pane" data-pane="contact" hidden>
+      <h2>Initiate contact</h2>
+      <p>Have a project in mind or want to collaborate? Send a signal across the galaxy!</p>
+      <p><a class="btn primary" href="mailto:your.email@example.com">Launch message</a></p>
+      <p class="links"><a href="https://github.com/corbindrew51-beep">GitHub</a></p>
+    </div>
+  </aside>
 
-  <div id="controls">
-    <button type="button" class="swatch" data-theme="nebula" aria-label="Nebula theme"></button>
-    <button type="button" class="swatch" data-theme="aurora" aria-label="Aurora theme"></button>
-    <button type="button" class="swatch" data-theme="supernova" aria-label="Supernova theme"></button>
-    <button type="button" id="warp" class="btn ghost">Warp</button>
-  </div>
-  <button id="reset" class="btn ghost" type="button">Reset layout</button>
   <script src="script.js"></script>
 </body>
 </html>
-apps-fileview.texmex_20261112.06_p2
-index.html
-Displaying index.html.
