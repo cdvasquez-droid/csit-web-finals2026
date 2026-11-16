@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IM Corbin Drew Vasquez | My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="space" aria-hidden="true"></canvas>
+
+  <!-- The whole portfolio is a map you can drag around -->
+  <div id="stage">
+    <div id="world">
+      <svg id="lines" aria-hidden="true"></svg>
+
+      <div class="node" data-id="home" data-x="700" data-y="1000">
+        <button class="planet sun" data-goto="home" aria-label="Home"></button>
+        <div class="intro">
+          <p class="kicker">Welcome to my portfolio</p>
+          <h1>Hi, I'm Corbin Drew Vasquez</h1>
+          <h2>I build <span id="typed"></span><span class="caret">|</span></h2>
+          <p class="lead">Exploring the digital cosmos through clean code, modern web architecture, and interactive user experiences.</p>
+          <div class="actions">
+            <button class="btn primary" data-goto="projects">Explore my work</button>
+            <button class="btn ghost" data-goto="contact">Send a message</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="node" data-id="about" data-x="1550" data-y="520" style="--lab:135px">
+        <button class="planet p-about" data-goto="about" aria-label="About me"></button>
+        <span class="tag">About</span>
+      </div>
+
+      <div class="node" data-id="skills" data-x="1950" data-y="1330" style="--lab:285px">
+        <button class="planet p-skills" data-goto="skills" aria-label="Skills">
+          <span class="ring r1"><span class="sk a">HTML5</span><span class="sk b">CSS3</span></span>
+          <span class="ring r2"><span class="sk a">JS</span><span class="sk b">Git</span></span>
+          <span class="ring r3"><span class="sk a">React</span><span class="sk b">DB</span></span>
+        </button>
+        <span class="tag">Skills</span>
+      </div>
+
+      <div class="node" data-id="projects" data-x="2650" data-y="760" style="--lab:200px">
+        <button class="planet p-projects" data-goto="projects" aria-label="Projects"></button>
+        <span class="tag">Projects</span>
+      </div>
+
+      <div class="node" data-id="contact" data-x="2550" data-y="1700" style="--lab:110px">
+        <button class="planet p-contact" data-goto="contact" aria-label="Contact"></button>
+        <span class="tag">Contact</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="top">
+    <button class="logo" data-goto="home">CORB.DEV</button>
+    <nav aria-label="Destinations">
+      <button data-goto="home">Home</button>
+      <button data-goto="about">About</button>
+      <button data-goto="skills">Skills</button>
+      <button data-goto="projects">Projects</button>
+      <button data-goto="contact">Contact</button>
+    </nav>
+  </header>
+
+  <p id="hint">Drag to explore. Scroll to zoom. Click a planet to land on it.</p>
+  <canvas id="mini" aria-label="Map of the portfolio. Click to jump."></canvas>
+  <p class="foot">&copy; 2026 Corbin Drew F. Vasquez. Crafted among the stars.</p>
+
+  <aside id="panel" role="dialog" aria-label="Details" aria-hidden="true" inert>
+    <button id="close" aria-label="Close panel">&times;</button>
+
+    <div class="pane" data-pane="about" hidden>
+      <h2>About me</h2>
+      <p>Hello! I'm Corbin Drew Vasquez, a passionate web developer dedicated to crafting responsive, engaging, and high-performance websites. Just like exploring deep space, I love diving into new technologies and solving complex coding puzzles.</p>
+      <p>Whether it's front-end design or back-end logic, I focus on turning ambitious ideas into reality on the web.</p>
+      <dl class="facts">
+        <div><dt>Projects launched</dt><dd>10+</dd></div>
+        <div><dt>Commitment</dt><dd>100%</dd></div>
+        <div><dt>Curiosity</dt><dd>24/7</dd></div>
+      </dl>
+    </div>
+
+    <div class="pane" data-pane="skills" hidden>
+      <h2>Tech arsenal</h2>
+      <ul class="stack">
+        <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Git &amp; GitHub</li><li>React</li><li>Databases</li>
+      </ul>
+    </div>
+
+    <div class="pane" data-pane="projects" hidden>
+      <h2>Featured missions</h2>
+      <article>
+        <h3>Nebula Task Manager</h3>
+        <p>A sleek, dark-mode productivity web app featuring local storage persistence, priority filtering, and smooth animations.</p>
+        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        <p class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></p>
+      </article>
+      <article>
+        <h3>Astro Weather Tracker</h3>
+        <p>Real-time weather dashboard pulling live atmospheric data via REST APIs with dynamic background themes.</p>
+        <ul class="tags"><li>JavaScript</li><li>REST API</li><li>CSS Grid</li></ul>
+        <p class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></p>
+      </article>
+      <article>
+        <h3>Portfolio V2</h3>
+        <p>An interactive galaxy-themed personal portfolio built with HTML5 Canvas particle physics and glassmorphism UI.</p>
+        <ul class="tags"><li>Canvas API</li><li>Glassmorphism</li><li>Responsive</li></ul>
+        <p class="links"><a href="https://github.com/corbindrew51-beep">Code</a><a href="#">Live demo</a></p>
+      </article>
+    </div>
+
+    <div class="pane" data-pane="contact" hidden>
+      <h2>Initiate contact</h2>
+      <p>Have a project in mind or want to collaborate? Send a signal across the galaxy!</p>
+      <p><a class="btn primary" href="mailto:your.email@example.com">Launch message</a></p>
+      <p class="links"><a href="https://github.com/corbindrew51-beep">GitHub</a></p>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
